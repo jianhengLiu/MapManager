@@ -27,9 +27,9 @@ void MapManager::initMap(nav_msgs::OccupancyGrid::ConstPtr map_msg)
     gl_yl = -(double)GLY_SIZE/2*resolution;
     gl_zl = 0;
 
-    gl_xu = origin.position.x;
-    gl_yu = origin.position.y;
-    gl_zu = origin.position.z;
+    gl_xu = -gl_xl;
+    gl_yu = -gl_yl;
+    gl_zu = (double)GLZ_SIZE*resolution;
 
     origin = map_msg->info.origin;
 
