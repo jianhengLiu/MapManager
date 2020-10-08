@@ -43,7 +43,7 @@ void callback_goal(const geometry_msgs::PoseStamped::ConstPtr &goal_msg)
     if(_MapManager.is_Map)
     {
         // 若没有odom想离线测试可将start_pt设为地图原点，如下
-//         Eigen::Vector3d start_pt = Eigen::Vector3d(_MapManager.origin.position.x,_MapManager.origin.position.y,_MapManager.origin.position.z);
+//         Eigen::Vector3d start_pt = Eigen::Vector3d(0,0,0);
 
         Eigen::Vector3d start_pt = Eigen::Vector3d(currentPos.pose.position.x,currentPos.pose.position.y,currentPos.pose.position.z);
         Eigen::Vector3d target_pt(goal_msg->pose.position.x,goal_msg->pose.position.y,goal_msg->pose.position.z);
