@@ -42,8 +42,8 @@ public:
     /**
      * GLX_SIZE,GLY_SIZE也同时表示了地图的宽（width）和高（height）
      */
-    int GLX_SIZE, GLY_SIZE, GLZ_SIZE;//   地图的最小（lower）位置（单位栅格)
-    int GLXYZ_SIZE,GLXY_SIZE, GLYZ_SIZE;//   地图的最大（upper）位置（单位栅格)
+    int GLX_SIZE, GLY_SIZE, GLZ_SIZE;//   地图的XYZ大小（单位栅格)
+    int GLXYZ_SIZE,GLXY_SIZE, GLYZ_SIZE;
 
     void initMap(nav_msgs::OccupancyGrid::ConstPtr map_msg);
 
