@@ -13,14 +13,15 @@ using namespace Eigen;
 
 // 0.3 表示了对障碍物的膨胀半径（m）
 MapManager _MapManager(0.3);
-
+//	全局变量暂存实时机器人位置（meter）
 geometry_msgs::PoseStamped currentPos;
-
+//	定义了ROS相关的发布者
 ros::Publisher _obs_vis_pub,_grid_path_vis_pub;
 
-//  路径可视化函数
+//  路径可视化函，grid_path为搜索得到的以地图索引（index）存储的路径
 void visGridPath( std::vector<Eigen::Vector3d> grid_path);
 
+//	地图订阅的回调函数
 void callback_map(const nav_msgs::OccupancyGrid::ConstPtr &map_msg)
 {
     //  初始化地图
@@ -38,6 +39,7 @@ void callback_odom(const geometry_msgs::PoseWithCovarianceStamped::ConstPtr &pos
     currentPos.pose = pose_msg->pose.pose;
 }
 
+//	目标位置（meter）的回调函数，由rviz中的插件2D_Nav_Goal触发
 void callback_goal(const geometry_msgs::PoseStamped::ConstPtr &goal_msg)
 {
     if(_MapManager.is_Map)
